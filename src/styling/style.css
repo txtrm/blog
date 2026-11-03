@@ -1,0 +1,121 @@
+/* Box sizing reset so padding/margins don't blow out container widths */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.squareA,
+.squareA::before,
+.squareA::after {
+  box-sizing: 10px;
+}
+
+
+body {
+  background-color: rgb(32, 31, 37);
+  color: rgb(212, 212, 212);
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Outfit', sans-serif;
+  color: #ffffff;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 550;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 300;
+}
+
+/* Centered main wrapper with responsive padding */
+.main {
+  width: 100%;
+  max-width: 44rem; /* Keeps lines comfortable to read on desktop */
+  margin: 0 auto;
+  padding: 2rem 1.25rem; /* Generous breathing room on mobile screens */
+}
+
+.sub-heading {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.intro-text p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgb(220, 220, 225);
+}
+
+/* Link and Bold accent styling */
+b, a {
+  color: rgb(242, 119, 122);
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* ------------------------------------------- */
+/* Tablet & Desktop Adjustments (Screen >= 640px) */
+/* ------------------------------------------- */
+@media (min-width: 640px) {
+  .main {
+    padding: 4rem 2rem;
+  }
+
+  h1 {
+    font-size: 3.1rem;
+  }
+
+  .sub-heading {
+    margin-top: 2.8rem;
+    font-size: 2.4rem;
+  }
+
+  .intro-text p {
+    font-size: 1.2rem;
+  }
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Locks the root viewport */
+}
+
+.main-content {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto; /* Only the right side scrolls */
+  background: rgb(32, 31, 37);
+  padding: 2.5rem;
+  box-sizing: border-box;
+}
+
+.code {
+  font-family: 'JetBrains Mono'
+}
