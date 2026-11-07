@@ -73,6 +73,7 @@ b, a {
 a {
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-color: RGB(132, 76, 80);
 }
 
 a:hover {
@@ -116,6 +117,25 @@ a:hover {
   box-sizing: border-box;
 }
 
-.code {
+.code1 {
   font-family: 'JetBrains Mono'
+}
+
+.card-year {
+  font-family: 'Google Sans Code';
+  font-size: 0.95rem;
+  color: gray;
+}
+
+.card-title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: rgb(242, 119, 122);
+  margin-bottom: -0.7rem;
+}
+
+.card-description {
+  font-size: 1.05rem;
+  font-weight: 350;
+  margin-bottom: 0.5rem;
 }

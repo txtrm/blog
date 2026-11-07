@@ -1,6 +1,7 @@
 ---
 import '../styling/style.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro'
 ---
 
 <html lang="en">
@@ -10,11 +11,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Tiam Hadjian</title>
+		<title>Projects</title>
 	</head>
     <body>
         <BaseLayout title="Home">
-            
+            <header>
+                <h1>Projects</h1>
+                <h3 style="color: rgb(225, 220, 220); margin-top: 1rem; font-size: 1.34rem; max-width: 40rem; margin-bottom: 3rem;">
+                    All of my <b>open-source</b> projects I've made, including
+                    short Articles explaining the process of how I made them.
+                </h3>
+            </header>
+            <ProjectCard />
         </BaseLayout>        
     </body>
 </html>

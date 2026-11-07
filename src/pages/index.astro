@@ -1,4 +1,6 @@
 ---
+// Import the CSS file from the same directory
+import '../styling/style.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -13,7 +15,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</head>
 	<body>
 		<BaseLayout title="Home">
+			<main class="main">
+				<header>
+					<h1>Hey, I'm Tiam!</h1>
+					<h3 style="color: rgb(103, 100, 100); margin-top: 0.25rem;">Highschool Student, all-around nerd.</h3>
+				</header>
 
-        </BaseLayout>
-    </body>
+				<section>
+					<h2 class="sub-heading">About me</h2>
+					<div class="intro-text">
+						<p>
+							Quick introduction, Hi my name is <b>Tiam Hadjian</b> and I'm 15 years old.
+							I've lived in <b>Germany</b> with my parents and little brother all my life, 
+							but I'm 99% sure I'm 100% <b>Persian</b> or <b>Iranian</b> or whatever you 
+							want to call it. <i>There's all my personal information, you creep.</i>
+						</p>
+						<p>
+							I've played the <b>piano</b> since I was 8 and I love <b>coding</b> in my freetime.
+							I also sometimes play around in <b>Blender</b>, which fun fact, is the only software
+							where beginners manage to confuse the pros <i>(I don't know what I'm doing)</i>.
+						</p>
+						<p>
+							I'm also a part of my school's robotics team <a href="https://github.com/Bento-Robotics" target="_blank" rel="noopener noreferrer">
+                            <b>Bento Robotics</b></a> <i>(sponsors are appreciated)</i> where we compete in the 
+							RMRC (Rapidly Manufactured Robot Challenge) at the <b>RoboCup</b> <i>(Not to brag, but we have
+							<b> won the German-Open</b> competition and came 8th at the World Championships).</i> We're
+							also Open-Source, so if you were wondering, yes, you can steal our code.
+						</p>
+						<p>
+							I've also recently picked up photography as a hobby after I found my dad's <b>Canon 1200D</b> 
+							<i> (or Rebel T5 for all my freedom people)</i>. I'll link my insta here if I ever get to 
+							making one <i>(I probably won't)</i>.
+						</p>
+						<p>
+							Anyways enough about me and more about me. This website is dedicated to all of my <b>coding
+							projects</b> and maybe some random <b>blogs</b> on the side. All of these projects were
+                            made for fun in my freetime so there's a not so small chance that you might find some
+                            absolutely <b>horrendous</b> sights, like a swarm of nested ifs. But that's not what this page is
+                            about, it's not about the <b>prettiest</b> code or most <b>efficient</b> algorithms. I made this page to
+                            showcase and document my somewhat questionable learning progress, so that I can look back and
+                            laugh in 10 years time.
+						</p>
+                        <p>
+                            <i>P.S. some of these projects are years old, but I only recently published them all to git and
+                            created this Website.</i>
+                        </p>
+					</div>
+					<h3 style="color: rgb(212, 212, 212); margin-top: 3rem; font-size: 1.1rem;">(heavily inspired by <a href="https://www.taniarascia.com">Tania Rascia's</a> Website)</h3>
+				</section>
+			</main>
+		</BaseLayout>
+	</body>
 </html>

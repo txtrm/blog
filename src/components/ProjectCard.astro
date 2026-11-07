@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0rem;
+      box-sizing: border-box;
+      background: #1e1e24; /* Optional: matches dark theme vibe */
+      font-family: sans-serif;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    /* Style the custom element */
+    custom-box {
+      background: RGB(40, 40, 45);
+      border: 2px solid RGB(50, 50, 57);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.562);
+      display: block;
+    }
+
+    custom-box h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.2rem;
+      color: #f0f0f5;
+    }
+
+    custom-box p {
+      margin: 0 0 1rem 0;
+      color: #9e9ea3;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    custom-box a {
+      color: #61afef;
+      text-decoration: none;
+    }
+
+    custom-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <custom-box title="Chess" description="Recreation of chess" year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/chess"></custom-box>
+    <custom-box title="Colliding Circles" description="Circle collision sim" year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/collision/blob/main/CC.py"></custom-box>
+    <custom-box title="Pi-Cubes" description="Method of finding Pi through collisions" year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/collision/blob/main/PiCubes.py"></custom-box>
+    <custom-box title="Bacteria" description="Simulation of a Bacteria colony" year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/simulation/blob/main/Bakterien.py"></custom-box>
+    <custom-box title="Conway's Game Of Life" description="Simple rules create complex life" year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/simulation/blob/main/GameOfLife.py"></custom-box>
+    <custom-box title="Langton's Ant" description="Simple rules build infinite highways" year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/simulation/blob/main/langtonsAnt.py"></custom-box>
+    <custom-box title="Particle Playground" description="Pixel physics simulation" year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/simulation/blob/main/ParticlePlayground.py"></custom-box>
+    <custom-box title="Sorting Algorithms" description="Collection of sorting algorithms" year="2025" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/Sorting"></custom-box>
+    <custom-box title="tiamhadjian.de" description="This website." year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/blog"></custom-box>
+    <custom-box title="Bouncing Ball" description="Basic circle bounce simulation" year="2026" hasArticle="true" articleUrl="test" sourceUrl="https://github.com/txtrm/collision/blob/main/bouncingBalls.py"></custom-box>
+  </div>
+
+  <script>
+    class CustomBox extends HTMLElement {
+      connectedCallback() {
+        const year = this.getAttribute('year') || 'Default Year';
+        const title = this.getAttribute('title') || 'Default Title';
+        const description = this.getAttribute('description') || 'Default Description';
+        const attrVal = this.getAttribute('hasArticle');
+        const hasArticle = attrVal !== null && attrVal.toLowerCase() === 'true';
+        const articleUrl = this.getAttribute('articleUrl') || '#';
+        const sourceUrl = this.getAttribute('sourceUrl') || '#';
+
+        const linkHTML = hasArticle 
+        ? `<a href="${articleUrl}" style="margin-right: 1rem;">Article</a>` 
+        : '';
+
+        this.innerHTML = `
+            <h3 class="card-year">${year}</h3>
+            <h3 class="card-title">${title}</h3>
+            <p class="card-description">${description}</p>
+            ${linkHTML}
+            <a href="${sourceUrl}" target="_blank">Source</a>
+        `;
+      }
+    }
+
+    customElements.define('custom-box', CustomBox);
+  </script>
+</body>
+</html>
