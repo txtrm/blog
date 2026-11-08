@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap');
-
 /* Box sizing reset so padding/margins don't blow out container widths */
 *,
 *::before,
@@ -75,7 +73,7 @@ h3 {
 }
 
 .intro-text code {
-  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-family: 'JetBrains Mono', monospace;
   background-color: rgba(255, 255, 255, 0.08);
   padding: 0.15rem 0.4rem;
   border-radius: 4px;
@@ -200,11 +198,11 @@ body::-webkit-scrollbar {
 }
 
 .code1 {
-  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-family: 'JetBrains Mono'
 }
 
 .card-year {
-  font-family: 'Google Sans Code', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-family: 'Google Sans Code';
   font-size: 0.95rem;
   color: gray;
 }
