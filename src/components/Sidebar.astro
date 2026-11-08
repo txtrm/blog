@@ -74,4 +74,44 @@
     color: #ffffff;
   }
 
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      overflow-y: visible;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background: rgba(18, 18, 20, 0.95);
+    }
+
+    .sidebar-header h2 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .nav-links {
+      flex-direction: row;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      padding: 0.4rem 0.6rem;
+    }
+
+    .nav-bottom {
+      margin-top: 0;
+      margin-left: 0.5rem;
+      align-items: center;
+    }
+  }
+
 </style>
