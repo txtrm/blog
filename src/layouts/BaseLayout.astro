@@ -20,5 +20,102 @@ const { title } = Astro.props;
         <slot />
       </main>
     </div>
+
+    <script>
+      class CodeCard extends HTMLElement {
+        connectedCallback() {
+          const title = this.getAttribute('title') || 'main.py';
+          const innerCode = this.querySelector('pre');
+          if (!innerCode) return;
+
+          const header = document.createElement('div');
+          header.className = 'code-card-header';
+          header.innerHTML = `
+            <div class="code-card-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span>${title}</span>
+            </div>
+            <div class="code-card-actions">
+              <button type="button" class="code-btn toggle-btn" aria-label="Toggle code visibility">
+                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+                <span class="toggle-text">Collapse</span>
+              </button>
+              <button type="button" class="code-btn copy-btn" aria-label="Copy code">
+                <span class="icon-wrap">
+                  <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <svg class="check-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                <span class="btn-text">Copy</span>
+              </button>
+            </div>
+          `;
+
+          const body = document.createElement('div');
+          body.className = 'code-card-body';
+          body.appendChild(innerCode);
+
+          this.appendChild(header);
+          this.appendChild(body);
+
+          const toggleBtn = header.querySelector('.toggle-btn');
+          const toggleText = header.querySelector('.toggle-text');
+          const chevron = header.querySelector('.chevron-icon');
+          const copyBtn = header.querySelector('.copy-btn');
+          const copyIcon = header.querySelector('.copy-icon');
+          const checkIcon = header.querySelector('.check-icon');
+          const btnText = header.querySelector('.btn-text');
+
+          if (toggleBtn && toggleText) {
+            toggleBtn.addEventListener('click', () => {
+              const isCollapsed = body.classList.toggle('collapsed');
+              toggleText.textContent = isCollapsed ? 'Expand' : 'Collapse';
+              if (chevron) {
+                chevron.style.transform = isCollapsed ? 'rotate(180deg)' : 'rotate(0deg)';
+                chevron.style.transition = 'transform 0.2s ease';
+              }
+            });
+          }
+
+          if (copyBtn) {
+            copyBtn.addEventListener('click', async () => {
+              const codeEl = body.querySelector('code');
+              const textToCopy = codeEl ? codeEl.innerText : '';
+              if (!textToCopy) return;
+
+              try {
+                await navigator.clipboard.writeText(textToCopy);
+                copyBtn.classList.add('copied');
+                if (copyIcon) copyIcon.style.display = 'none';
+                if (checkIcon) checkIcon.style.display = 'inline-block';
+                if (btnText) btnText.textContent = 'Copied!';
+
+                setTimeout(() => {
+                  copyBtn.classList.remove('copied');
+                  if (copyIcon) copyIcon.style.display = 'inline-block';
+                  if (checkIcon) checkIcon.style.display = 'none';
+                  if (btnText) btnText.textContent = 'Copy';
+                }, 2000);
+              } catch (e) {
+                console.error(e);
+              }
+            });
+          }
+        }
+      }
+
+      if (!customElements.get('code-card')) {
+        customElements.define('code-card', CodeCard);
+      }
+    </script>
   </body>
 </html>

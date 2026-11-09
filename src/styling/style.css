@@ -49,6 +49,13 @@ h3 {
   padding: 1.5rem 1rem;
 }
 
+.article-container {
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
 .hero-subtitle {
   color: rgb(155, 155, 165);
   margin-top: 0.35rem;
@@ -63,7 +70,13 @@ h3 {
   font-size: 1.8rem;
 }
 
-.intro-text p {
+.intro-text p,
+.main-content > p,
+.main > p,
+.article-container p,
+.article-container li,
+.main-content > ul,
+.main-content > ol {
   margin-top: 1.15rem;
   margin-bottom: 1.15rem;
   font-size: 1.05rem;
@@ -72,13 +85,118 @@ h3 {
   color: rgb(215, 215, 222);
 }
 
-.intro-text code {
+:not(pre) > code {
   font-family: 'JetBrains Mono', monospace;
   background-color: rgba(255, 255, 255, 0.08);
   padding: 0.15rem 0.4rem;
   border-radius: 4px;
   font-size: 0.9em;
   color: rgb(242, 119, 122);
+}
+
+/* Multi-line code blocks */
+pre.astro-code,
+pre {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 1.15rem 1.4rem !important;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  overflow-x: auto;
+}
+
+pre code {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Code Card Component (Native HTML custom element <code-card>) */
+code-card {
+  display: block;
+  margin: 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background-color: #232731;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+code-card .code-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background-color: #1e222a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  user-select: none;
+}
+
+code-card .code-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: #abb2bf;
+  font-weight: 500;
+}
+
+code-card .code-card-title svg {
+  color: #61afef;
+}
+
+code-card .code-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+code-card .code-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #abb2bf;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+code-card .code-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+code-card .code-btn.copied {
+  color: #98c379;
+  border-color: rgba(152, 195, 121, 0.4);
+  background: rgba(152, 195, 121, 0.1);
+}
+
+code-card pre.astro-code,
+code-card pre {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+
+code-card .code-card-body.collapsed {
+  display: none;
 }
 
 .ps-note {
@@ -95,7 +213,7 @@ h3 {
 }
 
 /* Link and Bold accent styling */
-b, a {
+b, strong, a {
   color: rgb(242, 119, 122);
 }
 
@@ -158,7 +276,13 @@ a:hover {
     font-size: 2.4rem;
   }
 
-  .intro-text p {
+  .intro-text p,
+  .main-content > p,
+  .main > p,
+  .article-container p,
+  .article-container li,
+  .main-content > ul,
+  .main-content > ol {
     font-size: 1.2rem;
   }
 }
