@@ -2,8 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://txtrm.github.io',
-  base: '/blog',
+  site: 'https://tiamhadjian.de',
   markdown: {
     shikiConfig: {
       // Choose any VS Code dark theme
